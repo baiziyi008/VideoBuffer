@@ -35,7 +35,6 @@ public class CameraGLsurfaceView extends GLSurfaceView implements SurfaceTexture
 
     @Override
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Log.d(TAG, "onFrameAvailable: ");
         requestRender();
     }
 
@@ -64,7 +63,6 @@ public class CameraGLsurfaceView extends GLSurfaceView implements SurfaceTexture
 
     @Override
     public void onDrawFrame(GL10 gl10) {
-        Log.d(TAG, "onDrawFrame: ");
         GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
         mSurfaceTexture.updateTexImage();

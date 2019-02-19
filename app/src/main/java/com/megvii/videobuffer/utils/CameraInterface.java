@@ -36,6 +36,9 @@ public class CameraInterface {
         public void cameraHasOpened();
     }
 
+    private Camera.PreviewCallback mPreviewCallback = null;
+    private CamOpenOverCallback mOpenOverCallback = null;
+
     private CameraInterface() {
     }
 
@@ -93,6 +96,14 @@ public class CameraInterface {
         }
     }
 
+    public void setPreviewCallback(Camera.PreviewCallback callback){
+        mPreviewCallback = callback;
+    }
+
+    public void setOpenOverCallback(CamOpenOverCallback callback){
+        mOpenOverCallback = callback;
+    }
+
     private void initCamera(float previewRate) {
         mParams = mCamera.getParameters();
         mParams.setPictureFormat(ImageFormat.JPEG);
@@ -118,6 +129,13 @@ public class CameraInterface {
 
         isPreviewing = true;
         mPreviewRate = previewRate;
+
+        if (mOpenOverCallback != null){
+            mOpenOverCallback.cameraHasOpened();
+        }
+        if (mPreviewCallback != null){
+            mCamera.setPreviewCallback(mPreviewCallback);
+        }
 
         mParams = mCamera.getParameters();
         Log.i(TAG, "最终设置:PreviewSize--With = " + mParams.getPreviewSize().width
