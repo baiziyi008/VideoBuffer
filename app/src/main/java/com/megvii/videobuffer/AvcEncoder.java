@@ -113,7 +113,7 @@ public class AvcEncoder
 
 				while (isRuning) {
 					if (isEnd){
-						signalEndOfInputStream();
+//						signalEndOfInputStream();
 						break;
 					}
 					if (VideoActivity.YUVQueue.size() >0){

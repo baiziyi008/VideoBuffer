@@ -76,6 +76,7 @@ public class VideoActivity extends AppCompatActivity implements Camera.PreviewCa
         if (isRecording) {
             Log.d(TAG, "onPreviewFrame: " + (++frameCount));
             putYUVData(data, data.length);
+            camera.addCallbackBuffer(data);
         }
     }
 
