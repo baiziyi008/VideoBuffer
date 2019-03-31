@@ -17,8 +17,8 @@ import java.util.List;
 
 @SuppressLint("NewApi")
 public class CameraWrapper {
-    public static final int IMAGE_HEIGHT = 1080;
-    public static final int IMAGE_WIDTH = 1920;
+    public static final int IMAGE_HEIGHT = 480;//1080;
+    public static final int IMAGE_WIDTH = 640;//1920;
     private static final String TAG = "CameraWrapper";
     private static final boolean DEBUG = true;    // TODO set false on release
     private static CameraWrapper mCameraWrapper;
