@@ -28,7 +28,7 @@ public class VideoRunnable extends Thread {
     private static final int TIMEOUT_USEC = 10000;
     private static final int COMPRESS_RATIO = 256;
     private static final int BIT_RATE = CameraWrapper.IMAGE_HEIGHT * CameraWrapper.IMAGE_WIDTH * 3 * 8 * FRAME_RATE / COMPRESS_RATIO; // bit rate CameraWrapper.
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     private final Object lock = new Object();
     byte[] mFrameData;
     Vector<byte[]> frameBytes;
@@ -275,7 +275,9 @@ public class VideoRunnable extends Thread {
                 byte[] bytes = this.frameBytes.remove(0);
 //                if(DEBUG) Log.e("ang-->", "解码视频数据:" + bytes.length);
                 try {
+                    long  tttime = System.currentTimeMillis();
                     encodeFrame(bytes);
+                    if (DEBUG) Log.e("mfx", "time = "+(System.currentTimeMillis() - tttime)+"");
                 } catch (Exception e) {
                     if (DEBUG) Log.e("angcyo-->", "解码视频(Video)数据 失败");
                     e.printStackTrace();

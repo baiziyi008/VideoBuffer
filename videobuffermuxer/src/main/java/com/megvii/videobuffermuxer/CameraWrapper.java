@@ -17,8 +17,8 @@ import java.util.List;
 
 @SuppressLint("NewApi")
 public class CameraWrapper {
-    public static final int IMAGE_HEIGHT = 1080;
-    public static final int IMAGE_WIDTH = 1920;
+    public static final int IMAGE_HEIGHT = 480;
+    public static final int IMAGE_WIDTH = 640;
     private static final String TAG = "CameraWrapper";
     private static final boolean DEBUG = true;    // TODO set false on release
     private static CameraWrapper mCameraWrapper;
@@ -168,8 +168,10 @@ public class CameraWrapper {
             this.mCameraParamters.setPreviewSize(IMAGE_WIDTH, IMAGE_HEIGHT);
 //            this.mCamera.setDisplayOrientation(90);
             mCameraPreviewCallback = new CameraPreviewCallback();
-            mCamera.addCallbackBuffer(mImageCallbackBuffer);
-            mCamera.setPreviewCallbackWithBuffer(mCameraPreviewCallback);
+//            mCamera.addCallbackBuffer(mImageCallbackBuffer);
+//            mCamera.setPreviewCallbackWithBuffer(mCameraPreviewCallback);
+            mCamera.setPreviewCallback(mCameraPreviewCallback);
+            mCamera.setDisplayOrientation(90);
             List<String> focusModes = this.mCameraParamters.getSupportedFocusModes();
             if (focusModes.contains("continuous-video")) {
                 this.mCameraParamters
@@ -215,7 +217,7 @@ public class CameraWrapper {
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
             MediaMuxerRunnable.addVideoFrameData(data);
-            camera.addCallbackBuffer(data);
+//            camera.addCallbackBuffer(data);
         }
     }
 

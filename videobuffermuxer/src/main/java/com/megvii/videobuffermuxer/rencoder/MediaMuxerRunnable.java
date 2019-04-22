@@ -79,10 +79,10 @@ public class MediaMuxerRunnable extends Thread {
         muxerDatas = new Vector<>();
         fileSwapHelper = new FileSwapHelper();
 
-        audioThread = new AudioRunnable(new WeakReference<MediaMuxerRunnable>(this));
+//        audioThread = new AudioRunnable(new WeakReference<MediaMuxerRunnable>(this));
         videoThread = new VideoRunnable(CameraWrapper.IMAGE_WIDTH, CameraWrapper.IMAGE_HEIGHT, new WeakReference<MediaMuxerRunnable>(this));
 
-        audioThread.start();
+//        audioThread.start();
         videoThread.start();
 
         fileSwapHelper.requestSwapFile(true);
@@ -296,7 +296,8 @@ public class MediaMuxerRunnable extends Thread {
     }
 
     private boolean isMuxerStart() {
-        return isAudioAdd && isVideoAdd;
+//        return isAudioAdd && isVideoAdd;
+        return isAudioAdd || isVideoAdd;
     }
 
     private void restartAudioVideo() {

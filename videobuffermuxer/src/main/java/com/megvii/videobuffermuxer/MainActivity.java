@@ -48,15 +48,15 @@ public class MainActivity extends AppCompatActivity implements CameraWrapper.Cam
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mCameraTexturePreview = (CameraTexturePreview) findViewById(R.id.camera_textureview);
-        mCameraTexturePreview.setAlpha(0.5f);
+//        mCameraTexturePreview.setAlpha(0.5f);
 
-        Paint blurPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        ColorMatrix cm = new ColorMatrix();
-        cm.setSaturation(0);
-        blurPaint.setColorFilter(new ColorMatrixColorFilter(cm));
+//        Paint blurPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//        ColorMatrix cm = new ColorMatrix();
+//        cm.setSaturation(0);
+//        blurPaint.setColorFilter(new ColorMatrixColorFilter(cm));
 //        blurPaint.setMaskFilter(new BlurMaskFilter(25, BlurMaskFilter.Blur.NORMAL));
 //        blurPaint.setShader(new RadialGradient(0.5f, 0.5f, 0.2f, Color.BLACK, Color.TRANSPARENT, Shader.TileMode.MIRROR));
-        mCameraTexturePreview.setLayerType(View.LAYER_TYPE_HARDWARE, blurPaint);
+//        mCameraTexturePreview.setLayerType(View.LAYER_TYPE_HARDWARE, blurPaint);
 
         findViewById(R.id.crash).setOnClickListener(new View.OnClickListener() {
             @Override
