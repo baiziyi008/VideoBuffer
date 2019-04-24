@@ -297,7 +297,7 @@ public class MediaMuxerRunnable extends Thread {
 
     private boolean isMuxerStart() {
 //        return isAudioAdd && isVideoAdd;
-        return isVideoAdd;
+        return isAudioAdd || isVideoAdd;
     }
 
     private void restartAudioVideo() {

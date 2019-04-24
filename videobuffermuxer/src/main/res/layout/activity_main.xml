@@ -29,8 +29,8 @@
             android:id="@+id/startAndStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="stop"
-            android:text="停止"
+            android:tag="start"
+            android:text="开始"
             android:textAllCaps="false" />
 
         <android.support.v7.widget.AppCompatButton
